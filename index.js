@@ -42,7 +42,7 @@ Infinigon.prototype.createPiece = function(options) {
 };
 
 Infinigon.prototype.removePiece = function(id) {
-  this.board.removePiece(id);
+  this.board.pieces[id].deconstruct();
 };
 
 Infinigon.prototype.getInitialization = function() {
