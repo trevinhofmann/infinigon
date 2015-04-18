@@ -1,0 +1,23 @@
+{
+  "name": "infinigon",
+  "version": "0.0.0",
+  "description": "A simple 2-dimensional JavaScript game engine with circular pieces.",
+  "keywords": [
+    "game",
+    "engine",
+    "2D"
+  ],
+  "bugs": {
+    "url": "https://github.com/thofmann/infinigon/issues",
+    "email": "trevinhofmann@gmail.com"
+  },
+  "author": {
+    "name": "Trevin Hofmann",
+    "email": "trevinhofmann@gmail.com"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thofmann/infinigon.git"
+  }
+}
