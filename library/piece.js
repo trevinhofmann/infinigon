@@ -1,13 +1,13 @@
 'use strict';
 
-function Piece(id, options) {
-
-  if (!id) {
-    throw new Error('id must be specified');
-  }
+function Piece(options) {
 
   if (!options) {
     throw new Error('options must be specified');
+  }
+
+  if (!options.id) {
+    throw new Error('options.id must be specified');
   }
 
   if (!options.board) {
@@ -18,7 +18,7 @@ function Piece(id, options) {
     throw new Error('options.position must be specified');
   }
 
-  this.id = id;
+  this.id = options.id;
 
   this.board = options.board;
 
@@ -45,7 +45,7 @@ function Piece(id, options) {
     this.weapon.last = 0;
   }
 
-  this.board.addPiece(id, this);
+  this.board.addPiece(this);
 
   if (options.lifespan) {
     var piece = this;
