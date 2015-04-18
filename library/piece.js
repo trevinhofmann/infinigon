@@ -1,5 +1,7 @@
 'use strict';
 
+var crypto = require('crypto');
+
 function Piece(options) {
 
   if (!options) {
@@ -48,8 +50,12 @@ function Piece(options) {
   this.board.addPiece(this);
 
   if (options.lifespan) {
+    this.deathCallback = options.deathCallback;
     var piece = this;
     setTimeout(function() {
+      if (typeof piece.deathCallback !== 'undefined') {
+        piece.deathCallback(piece.id);
+      }
       piece.deconstruct();
     }, options.lifespan);
   }
@@ -91,7 +97,8 @@ Piece.prototype.updateTarget = function(target) {
   this.target.y = target.y;
 };
 
-Piece.prototype.fire = function(target) {
+Piece.prototype.fire = function(target, deathCallback) {
+
   if (!this.weapon) {
     return; // no weapon
   }
@@ -101,15 +108,27 @@ Piece.prototype.fire = function(target) {
   }
 
   var options = {
-    piece: this,
+    id: crypto.randomBytes(32).toString('hex'),
+    board: this.board,
+    position: {
+      x: this.position.x,
+      y: this.position.y
+    },
     target: {
       x: target.x,
       y: target.y
-    }
+    },
+    size: 10,
+    speed: 8,
+    borderSize: 2,
+    class: 'projectile piece',
+    lifespan: 500,
+    deathCallback: deathCallback
   };
-  new Piece(options);
 
   this.weapon.last = Date.now();
+
+  return new Piece(options);
 };
 
 Piece.prototype.update = function() {
