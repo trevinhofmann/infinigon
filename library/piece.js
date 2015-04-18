@@ -56,6 +56,10 @@ function Piece(options) {
 
 }
 
+Piece.prototype.deconstruct = function() {
+  board.removePiece(this);
+};
+
 Piece.prototype.update = function() {
   var movementX = this.target.x - this.position.x;
   var movementY = this.target.y - this.position.y;
