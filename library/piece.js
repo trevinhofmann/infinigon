@@ -63,8 +63,14 @@ Piece.prototype.deconstruct = function() {
 Piece.prototype.getOptions = function() {
   return {
     id: this.id,
-    position: this.position,
-    target: this.target,
+    position: {
+      x: this.position.x,
+      y: this.position.y
+    },
+    target: {
+      x: this.target.x,
+      y: this.target.y
+    },
     size: this.size,
     borderSize: this.borderSize,
     speed: this.speed,
