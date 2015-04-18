@@ -60,6 +60,32 @@ Piece.prototype.deconstruct = function() {
   board.removePiece(this);
 };
 
+Piece.prototype.updateTarget = function(target) {
+  this.target.x = target.x;
+  this.target.y = target.y;
+};
+
+Piece.prototype.fire = function(target) {
+  if (!this.weapon) {
+    return; // no weapon
+  }
+
+  if (this.weapon.last + this.weapon.cooldown > Date.now()) {
+    return; // still on cooldown
+  }
+
+  var options = {
+    piece: this,
+    target: {
+      x: target.x,
+      y: target.y
+    }
+  };
+  new Piece(options);
+
+  this.weapon.last = Date.now();
+};
+
 Piece.prototype.update = function() {
   var movementX = this.target.x - this.position.x;
   var movementY = this.target.y - this.position.y;
