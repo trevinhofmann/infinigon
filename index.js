@@ -36,6 +36,15 @@ Infinigon.prototype.isRunning = function() {
   return (this.runInterval != false);
 };
 
+Infinigon.prototype.createPiece = function(options) {
+  options.board = this.board;
+  new Piece(options);
+};
+
+Infinigon.prototype.removePiece = function(id) {
+  this.board.removePiece(id);
+};
+
 Infinigon.Board = Board;
 Infinigon.Piece = Piece;
 
