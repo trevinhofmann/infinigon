@@ -60,6 +60,28 @@ Piece.prototype.deconstruct = function() {
   board.removePiece(this);
 };
 
+Piece.prototype.getOptions = function() {
+  var options = {
+    id: this.id,
+    position: this.position,
+    target: this.target,
+    size: this.size,
+    borderSize: this.borderSize,
+    speed: this.speed,
+    class: this.class
+  };
+  return options;
+};
+
+Piece.prototype.getUpdate = function() {
+  var update = {
+    id: this.id,
+    position: this.position,
+    target: this.target
+  };
+  return update;
+};
+
 Piece.prototype.updateTarget = function(target) {
   this.target.x = target.x;
   this.target.y = target.y;
