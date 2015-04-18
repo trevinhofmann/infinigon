@@ -27,4 +27,18 @@ Board.prototype.removePiece = function(id) {
   delete this.pieces[id];
 };
 
+Board.prototype.getPiece = function(id) {
+  for (var i in this.pieces) {
+    if (this.pieces[i].id == id) {
+      return this.pieces[i].id;
+    }
+  }
+};
+
+Board.prototype.update = function() {
+  for (var i in this.pieces) {
+    this.pieces[i].update();
+  }
+};
+
 module.exports = Board;
