@@ -56,4 +56,24 @@ function Piece(options) {
 
 }
 
+Piece.prototype.update = function() {
+  var movementX = this.target.x - this.position.x;
+  var movementY = this.target.y - this.position.y;
+  if (movementX != 0 || movementY != 0) {
+    var factor = this.speed / Math.sqrt(Math.pow(movementX, 2) + Math.pow(movementY, 2));
+    if (factor < 1) {
+      movementX *= factor;
+      movementY *= factor;
+    }
+  }
+  var x = this.position.x + movementX;
+  x = Math.min(x, this.board.size.width - this.size/2);
+  x = Math.max(x, this.size/2);
+  this.position.x = x;
+  var y = this.position.y + movementY;
+  y = Math.min(y, this.board.size.height - this.size/2);
+  y = Math.max(y, this.size/2);
+  this.position.y = y;
+};
+
 module.exports = Piece;
