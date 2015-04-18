@@ -3,8 +3,8 @@
 var Board = require('./library/board');
 var Piece = require('./library/piece');
 
-function Infinigon() {
-  var options = {
+function Infinigon(options) {
+  options = options || {
     size: {
       width: 1200,
       height: 1200
