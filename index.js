@@ -38,7 +38,7 @@ Infinigon.prototype.isRunning = function() {
 
 Infinigon.prototype.createPiece = function(options) {
   options.board = this.board;
-  new Piece(options);
+  return new Piece(options);
 };
 
 Infinigon.prototype.removePiece = function(id) {
@@ -53,7 +53,7 @@ Infinigon.prototype.getInitialization = function() {
     pieces: []
   };
   for (var i in this.board.pieces) {
-    init.pieces.push(this.board.pieces[i].getInitialization());
+    init.pieces.push(this.board.pieces[i].getOptions());
   }
   return init;
 };

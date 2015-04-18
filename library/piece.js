@@ -57,7 +57,7 @@ function Piece(options) {
 }
 
 Piece.prototype.deconstruct = function() {
-  board.removePiece(this);
+  this.board.removePiece(this);
 };
 
 Piece.prototype.getOptions = function() {

@@ -19,8 +19,8 @@ function Board(options) {
 
 }
 
-Board.prototype.addPiece = function(id, piece) {
-  this.pieces[id] = piece;
+Board.prototype.addPiece = function(piece) {
+  this.pieces[piece.id] = piece;
 };
 
 Board.prototype.removePiece = function(id) {
