@@ -61,7 +61,7 @@ Piece.prototype.deconstruct = function() {
 };
 
 Piece.prototype.getOptions = function() {
-  var options = {
+  return {
     id: this.id,
     position: this.position,
     target: this.target,
@@ -70,7 +70,6 @@ Piece.prototype.getOptions = function() {
     speed: this.speed,
     class: this.class
   };
-  return options;
 };
 
 Piece.prototype.getUpdate = function() {
