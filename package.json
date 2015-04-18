@@ -1,6 +1,6 @@
 {
   "name": "infinigon",
-  "version": "0.0.22",
+  "version": "0.0.31",
   "description": "A simple 2-dimensional JavaScript game engine with circular pieces.",
   "keywords": [
     "game",

@@ -149,6 +149,15 @@ Piece.prototype.update = function() {
   y = Math.min(y, this.board.size.height - this.size/2);
   y = Math.max(y, this.size/2);
   this.position.y = y;
+  for (var i in this.board.pieces) {
+    var other = this.board.pieces[i];
+    if (this == other) {
+      break;
+    }
+    var dx = this.position.x - other.position.x;
+    var dy = this.position.y - other.position.y;
+    var totalSize = this.size/2 + other.size/2;
+  }
 };
 
 module.exports = Piece;
