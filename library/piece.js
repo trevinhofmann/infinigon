@@ -73,12 +73,11 @@ Piece.prototype.getOptions = function() {
 };
 
 Piece.prototype.getUpdate = function() {
-  var update = {
+  return {
     id: this.id,
     position: this.position,
     target: this.target
   };
-  return update;
 };
 
 Piece.prototype.updateTarget = function(target) {
