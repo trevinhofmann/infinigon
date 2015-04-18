@@ -19,4 +19,12 @@ function Board(options) {
 
 }
 
+Board.prototype.addPiece = function(id, piece) {
+  this.pieces[id] = piece;
+};
+
+Board.prototype.removePiece = function(id) {
+  delete this.pieces[id];
+};
+
 module.exports = Board;
