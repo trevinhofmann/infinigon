@@ -45,6 +45,27 @@ Infinigon.prototype.removePiece = function(id) {
   this.board.removePiece(id);
 };
 
+Infinigon.prototype.getInitialization = function() {
+  var init = {
+    board: {
+      size: this.board.size
+    },
+    pieces: []
+  };
+  for (var i in this.board.pieces) {
+    init.pieces.push(this.board.pieces[i].getInitialization());
+  }
+  return init;
+};
+
+Infinigon.prototype.getUpdate = function () {
+  var update = [];
+  for (var i in this.board.pieces) {
+    update.push(this.board.pieces[i].getUpdate());
+  }
+  return update;
+};
+
 Infinigon.Board = Board;
 Infinigon.Piece = Piece;
 
